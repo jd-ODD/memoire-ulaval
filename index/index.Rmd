@@ -1,14 +1,14 @@
 ---
-auteur: 'Prénom Nom' # Entrer le nom de l'auteur entre ' '
-date: 'Mois Année ' # Entrer la date du dépôt entre ' '
-directeur: 'Prénom Nom' # Entrer le nom du directeur/directrice de recherche entre ' '
+auteur: 'Jeanne Desrosiers' # Entrer le nom de l'auteur entre ' '
+date: 'Décembre 2024 ' # Entrer la date du dépôt entre ' '
+directeur: 'Jean-Frédéric Morin' # Entrer le nom du directeur/directrice de recherche entre ' '
 direction: 'directeur' # Entrer 'directeur' ou 'directrice', en fonction du sexe du directeur/directrice de recherche, sans majuscule
 #codirecteur: 'Un Tel' # Entrer le nom du codirecteur/codirectrice de recherche entre ' '
 #codirection: 'codirecteur-ice' # Entrer 'codirecteur' ou 'codirectrice', en fonction du genre du codirecteur/codirectrice de recherche
 departement: 'science politique' # Entrer le nom du département délivrant le diplôme entre ' ', sans majuscule
 grade: 'M.A.' # Entrer le type de grade entre ' ' (M.A., M.Sc., PhD, etc.)
-diplome: 'Maîtrise' # Entrer le nom du diplôme entre ' ' (Maîtrise, Doctorat, etc.)
-type: 'Mémoire' # Entrer le type de projet entre ' ' (Essai, mémoire, thèse, etc.)
+diplome: 'Maîtrise professionnelle en science politique' # Entrer le nom du diplôme entre ' ' (Maîtrise, Doctorat, etc.)
+type: 'Essai' # Entrer le type de projet entre ' ' (Essai, mémoire, thèse, etc.)
 # Entrer le titre entre sur la première ligne, et le sous-titre sur la 2e
 titre: | 
           | Titre
