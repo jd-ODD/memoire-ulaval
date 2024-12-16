@@ -1,13 +1,75 @@
+---
+auteur: 'Jeanne Desrosiers' # Entrer le nom de l'auteur entre ' '
+date: 'Décembre 2024 ' # Entrer la date du dépôt entre ' '
+directeur: 'Jean-Frédéric Morin' # Entrer le nom du directeur/directrice de recherche entre ' '
+direction: 'directeur' # Entrer 'directeur' ou 'directrice', en fonction du sexe du directeur/directrice de recherche, sans majuscule
+#codirecteur: 'Un Tel' # Entrer le nom du codirecteur/codirectrice de recherche entre ' '
+#codirection: 'codirecteur-ice' # Entrer 'codirecteur' ou 'codirectrice', en fonction du genre du codirecteur/codirectrice de recherche
+departement: 'science politique' # Entrer le nom du département délivrant le diplôme entre ' ', sans majuscule
+grade: 'M.A.' # Entrer le type de grade entre ' ' (M.A., M.Sc., PhD, etc.)
+diplome: 'Maîtrise professionnelle en science politique' # Entrer le nom du diplôme entre ' ' (Maîtrise, Doctorat, etc.)
+type: 'Essai' # Entrer le type de projet entre ' ' (Essai, mémoire, thèse, etc.)
+# Entrer le titre entre sur la première ligne, et le sous-titre sur la 2e
+titre: | 
+          | Titre
+          |  Sous-titre
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: 
+  thesisdown::thesis_pdf: 
+      latex_engine: xelatex
+bibliography: bib/bibfile.bib
+csl: csl/apa.csl
+lof: true
+lot: true 
+header-includes:
+- \usepackage{setspace}
+- \usepackage[labelfont=bf,textfont=md]{caption}
+- \usepackage{float}
+- \usepackage[nottoc]{tocbibind} # pour ajouter les lof et lot dans la toc
+- \AtBeginDocument{\renewcommand{\contentsname}{Table des matières}}
+- \AtBeginDocument{\renewcommand{\listfigurename}{Liste des figures}}
+- \AtBeginDocument{\renewcommand{\listtablename}{Liste des tableaux}}
+- \AtBeginDocument{\renewcommand{\chaptername}{Article}}
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+resume: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-resume.Rmd"), collapse = '\n  ')`
+abstract: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
+remerciements: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00--remerciements.Rmd"), collapse = '\n  ')`
+---
+
+```{r include_packages, include = FALSE}
+# Cette partie du code s'assure que les le thesisdown package est installé et chargé.
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(thesisdown))
+  devtools::install_github("ismayc/thesisdown")
+library(thesisdown)
+```
+
+\doublespace
+
+# Introduction {.unnumbered}
+
+Rédiger ici l'introduction de votre mémoire.
+
+<!--chapter:end:index.Rmd-->
+
 # Votre titre
 
 ## Abstract
+
 > Rédigez ici votre abstract (en anglais).
 
 ## Résumé
+
 > Rédigez ici votre résumé (en français)
 
->**Keywords**
-Écrire ici vos mots-clés
+> **Keywords** Écrire ici vos mots-clés
 
 ## Introduction
 
@@ -33,24 +95,23 @@ Une fois que la norme a suffisamment percolé dans le système international et 
 
 ### Émergence de la norme
 
-Pour émerger, une norme doit réussir à dépasser l’inertie inhérente des sociétés qui vise la conservation d’une stabilité des systèmes politico-économico-juridiques, force statique qui ne doit pas être négligée. Pour qu’un État choisisse de construire une nouvelle norme, un besoin doit être ressenti pour un changement législatif au sein de l’État et celui-ci doit être l’objet d’importantes forces de pressions internes pour être l’initiateur de ce changement [@watson_comparative_1978, 330-333]. 
+Pour émerger, une norme doit réussir à dépasser l’inertie inhérente des sociétés qui vise la conservation d’une stabilité des systèmes politico-économico-juridiques, force statique qui ne doit pas être négligée. Pour qu’un État choisisse de construire une nouvelle norme, un besoin doit être ressenti pour un changement législatif au sein de l’État et celui-ci doit être l’objet d’importantes forces de pressions internes pour être l’initiateur de ce changement [@watson_comparative_1978, 330-333].
 
 Le travail de construction normatif qui suit peut, mais ne doit pas être compris comme un travail de création complet. La proposition contemporaine de nouvelles normes se réalise dans un environnement juridique international déjà fortement chargé. Il s’agit donc plutôt d’un travail incrémentiel à partir des normes existantes [@florini_evolution_1996, 376-377; @moore_negotiating_2012, 41]. Ainsi, le contenu d’une norme peut être élaboré à travers différent processus comme l’hybridation, consistant à réaliser des concessions en vue d’adjoindre des normes autrement compétitives ou contradictoires [@moore_negotiating_2012, 42], la fusion, où deux normes provenant de deux domaines différents sont jointes pour créer une nouvelle norme, le greffage, où une nouvelle norme est greffée à une norme existante dans le même domaine pour faciliter son institutionnalisation, et la résonnance, où une norme est modifiée pour être en phase avec le ou les discours existants influents [@acharya_how_2004, 243-244; @gonenc_conceptualizing_2021, 446; @price_reversing_1998, 617, 628 et 630]. À ce sujet, Bloomfield critique les théories traditionnelles sur l’évolution des normes en insistant que les procédures de leur développement ne sont pas le seul repositoire du dynamisme normatif, mais que le contenu même des normes est dynamique et non statique [@bloomfield_norm_2016, 313; @moore_negotiating_2012, 33]. L’élaboration du contenu d’une norme doit donc être comprise comme des démarches variables, itératives, dynamiques et non uniformes qui peuvent être mobilisées tant pour la définition de nouvelles normes que pour la redéfinition de normes existantes, par leur approfondissement tant en termes de contenu qu’en termes d’intégration [@gonenc_conceptualizing_2021, 446-448; @hadden_whats_2016, 261].
 
 ### Cascade des normes
 
-Comme spécifié par Finnemore et Sikkink, la cascade d’une norme ne peut s’entamer que lorsque la norme est institutionnalisée. La manière la plus aisée de constater ce point de bascule est à travers la juridiction internationale où les traités sont les principaux véhicules normatifs et agissent comme les proxies les plus accessibles en recherche pour observer la diffusion d’une norme [@finnemore_international_1998, 900-901]. L’implantation des traités, définie comme «the adoption of legal measures by states to translate their international commitments in their domestic legal order», peut généralement être évaluée à travers l’étude de la ratification des différentes composantes des traités ou des législations nationales [@brandi_when_2019, 15; @weiss_engaging_2000, 4]. 
+Comme spécifié par Finnemore et Sikkink, la cascade d’une norme ne peut s’entamer que lorsque la norme est institutionnalisée. La manière la plus aisée de constater ce point de bascule est à travers la juridiction internationale où les traités sont les principaux véhicules normatifs et agissent comme les proxies les plus accessibles en recherche pour observer la diffusion d’une norme [@finnemore_international_1998, 900-901]. L’implantation des traités, définie comme «the adoption of legal measures by states to translate their international commitments in their domestic legal order», peut généralement être évaluée à travers l’étude de la ratification des différentes composantes des traités ou des législations nationales [@brandi_when_2019, 15; @weiss_engaging_2000, 4].
 
-Cette cascade normative est comprise comme un phénomène de convergence des politiques, concept que Bennett définit en cinq temps, dans sa revue de littérature sur la question, en insistant sur les différents objets de la convergence des politiques: 
-> First, it can signify a convergence of policy goals, a coming together of intent to deal with common policy problems. Secondly, it can refer to policy content, defined as the more formal manifestations of government policy - statutes, administrative rules, regulations, court decisions and so on. Thirdly, there may be a convergence on policy instruments, i.e. the institutional tools available to administer policy, whether regulatory, administrative or judicial. Fourthly, convergence may occur on policy outcomes, impacts or consequences - the results (positive or negative, effective or ineffective) of implementation. Finally, there may be a convergence of policy style, a more diffuse notion signifying the process by which policy responses are formulated (consensual or conflictual, incremental or rational, anticipatory or reactive, corporatist or pluralist, etc.) [@bennett_what_1991, 218].
+Cette cascade normative est comprise comme un phénomène de convergence des politiques, concept que Bennett définit en cinq temps, dans sa revue de littérature sur la question, en insistant sur les différents objets de la convergence des politiques: \> First, it can signify a convergence of policy goals, a coming together of intent to deal with common policy problems. Secondly, it can refer to policy content, defined as the more formal manifestations of government policy - statutes, administrative rules, regulations, court decisions and so on. Thirdly, there may be a convergence on policy instruments, i.e. the institutional tools available to administer policy, whether regulatory, administrative or judicial. Fourthly, convergence may occur on policy outcomes, impacts or consequences - the results (positive or negative, effective or ineffective) of implementation. Finally, there may be a convergence of policy style, a more diffuse notion signifying the process by which policy responses are formulated (consensual or conflictual, incremental or rational, anticipatory or reactive, corporatist or pluralist, etc.) [@bennett_what_1991, 218].
 
-Cette convergence peut se produire à travers des modalités variées, présentées exhaustivement dans le modèle de continuum de Dolowitz et Marsh, ayant évolué en une catégorisation plus succincte en trois mécanismes, soit l’imposition, l’harmonisation et la diffusion [@dolowitz_learning_2000, 9]. L’imposition est comprise comme l’adoption d’une norme provoquée par des situations de coercition politique ou économique où «external actors intentionally force nations to adopt policy innovations which they would not have adopted otherwise and do so by exploiting economic or political power asymmetries» [@busch_international_2005-1, 863-864]. L’harmonisation, quant à elle, est une démarche ancrée dans les mécanismes de mise en place de traités comme la négociation, la juridicisation et l’encadrement qui se comprend comme «a multilateral and state-centred process where international negotiations among sovereign states and subsequent  policy formulation lead to domestic implementation and compliance[, where t]he same states that create the regulations are also responsible for their implementation» [@busch_international_2005-1, 863]. Finalement, la diffusion est quant à elle le mécanisme ayant été théorisé le plus récemment dans la littérature comprise comme «an international spread of policy innovations driven by information flows rather than by hierarchical or collective decision-making within international institutions [that are] adopted voluntarily by an increasing number of countries over time» [@busch_international_2005-1, 865], dont les mécanismes principaux sont l’apprentissage, la compétition, l’imitation, l’émulation et la socialisation [@marsh_policy_2009, 271-274].
+Cette convergence peut se produire à travers des modalités variées, présentées exhaustivement dans le modèle de continuum de Dolowitz et Marsh, ayant évolué en une catégorisation plus succincte en trois mécanismes, soit l’imposition, l’harmonisation et la diffusion [@dolowitz_learning_2000, 9]. L’imposition est comprise comme l’adoption d’une norme provoquée par des situations de coercition politique ou économique où «external actors intentionally force nations to adopt policy innovations which they would not have adopted otherwise and do so by exploiting economic or political power asymmetries» [@busch_international_2005-1, 863-864]. L’harmonisation, quant à elle, est une démarche ancrée dans les mécanismes de mise en place de traités comme la négociation, la juridicisation et l’encadrement qui se comprend comme «a multilateral and state-centred process where international negotiations among sovereign states and subsequent policy formulation lead to domestic implementation and compliance[, where t]he same states that create the regulations are also responsible for their implementation» [@busch_international_2005-1, 863]. Finalement, la diffusion est quant à elle le mécanisme ayant été théorisé le plus récemment dans la littérature comprise comme «an international spread of policy innovations driven by information flows rather than by hierarchical or collective decision-making within international institutions [that are] adopted voluntarily by an increasing number of countries over time» [@busch_international_2005-1, 865], dont les mécanismes principaux sont l’apprentissage, la compétition, l’imitation, l’émulation et la socialisation [@marsh_policy_2009, 271-274].
 
 Alors que l’imposition et l’harmonisation se caractérisent par une dynamique de convergence top-down, la diffusion est quant à elle davantage bottom-up, au sens où les normes peuvent se diffuser horizontalement entre les États, mais aussi verticalement des États vers le supranational et vice-versa. De plus, alors que les rôles des parties prenantes de l’imposition ou de l’harmonisation sont facilement attribuables ou identifiables, la diffusion a de particulier que son efficacité varie en fonction de la véhémence de la promotion internationale de la norme effectuée et des acteurs internationaux qui choisissent d’y participer [@busch_global_2005, 164]. Ces mécanismes ne sont pas mutuellement exclusifs dans leur application, de là leur compréhension comme un continuum, des études démontrant par exemple que la coercition hiérarchique peut fonctionner en parallèle de l’apprentissage régional [@daley_horizontal_2005; @dobbin_global_2007, 461; @dolowitz_learning_2000, 9].
 
 Concernant la diffusion, alors que les théories à son endroit insistent principalement sur la socialisation où les États sont influencés par les choix des autres États, Dobbin, Simmons et Garrett rappellent l’importance de prendre en compte les théories de l’apprentissage dans la compréhension de la diffusion. Les États apprendraient de leurs propres expériences de même que celles de leurs pairs avant d’adopter certaines normes ou non. L’apprentissage à travers les pairs se ferait tout particulièrement à travers la participation conjointe des États aux institutions internationales, de là la non-exclusivité des formes de convergence avec un lien entre harmonisation et diffusion [@dobbin_global_2007, 449-450 et 460-461; @haas_why_1979].
 
-En terminant, à travers l’ensemble de ces processus et mécanismes, la cascade d’une norme ne peut se solder par une réussite que si son cadrage ou framing est réussi. On comprend le cadrage comme un exercice de: « […] selection and salience. To frame is to select some aspects of a perceived reality and make them more salient in a communicating text, in such a way as to promote a particular problem definition, causal interpretation, moral evaluation, and/or treatment recommendation for the item described.» [@entman_framing_1993, 52]. En ce sens, peu importe les procédures employées, celles-ci ne peuvent être productives que si elles sont soutenues par un exercice de présentation, de communication, efficace. Parmi les composantes de cette communication, la réussite de la cascade normative reposerait fortement sur la liaison de la norme a des problèmes concrets vécus par les possibles adhérents et non simplement sur une présentation de la norme comme une aspiration morale [@blondeel_what_2019, 64; @gonenc_conceptualizing_2021, 445]. 
+En terminant, à travers l’ensemble de ces processus et mécanismes, la cascade d’une norme ne peut se solder par une réussite que si son cadrage ou framing est réussi. On comprend le cadrage comme un exercice de: « […] selection and salience. To frame is to select some aspects of a perceived reality and make them more salient in a communicating text, in such a way as to promote a particular problem definition, causal interpretation, moral evaluation, and/or treatment recommendation for the item described.» [@entman_framing_1993, 52]. En ce sens, peu importe les procédures employées, celles-ci ne peuvent être productives que si elles sont soutenues par un exercice de présentation, de communication, efficace. Parmi les composantes de cette communication, la réussite de la cascade normative reposerait fortement sur la liaison de la norme a des problèmes concrets vécus par les possibles adhérents et non simplement sur une présentation de la norme comme une aspiration morale [@blondeel_what_2019, 64; @gonenc_conceptualizing_2021, 445].
 
 ### Internalisation
 
@@ -58,7 +119,7 @@ L’internalisation représente à la fois la dernière étape du cycle de vie d
 
 Une pléthore de facteurs pouvant jouer sur la réussite ou l’échec de l’internalisation de dispositions législatives sont proposés par les auteurs et peuvent être divisés entre des facteurs internes aux États et des facteurs externes. À l’interne, Berkowitz, Pistor et Richard insistent sur la famille légale à laquelle appartient l’État, le PIB par capita, la favorabilité de la loi aux investissements, une demande pour la disposition légale reliée à des incitatifs pour les citoyens de s’en saisir et ainsi à des incitatifs pour le système juridique à se l’approprier, une compréhension facile de celles-ci et une adéquation avec les valeurs de la société [@berkowitz_transplant_2003, 166-177]. Watson souligne également l’importance du besoin ressenti pour le changement législatif et ajoute le facteur discrétionnaire versus le facteur de généralité qui, selon lui, conditionnent tout deux l’application d’une disposition législative [@watson_comparative_1978, 328-332]. Marsh et Sharman rappellent quant à eux la variabilité des points de bascule des États et donc de leur résistance à la pression [@marsh_policy_2009, 273-274]. Les capacités respectives des États de même que leurs contextes économiques et sociaux respectifs et les changements qui pourraient les modifier sont quant à eux amenés comme des facteurs de respect ou non d’une norme pour les États par Downs, Rocke et Barsoom [@downs_is_1996, 380-381]. Terzi se concentre sur les adhésions à de normes multiples au sein des États qui peuvent mener à des conflits lors de l’avènement de nouvelles normes; les réflexes heuristiques des États sont alors à surveiller pour mieux comprendre leurs choix d’application normative [@terzi_emotional_2024]. Pour Stalley, le niveau de développement des États est critique dans leur positionnement face aux normes émergentes [@stalley_norms_2018].
 
-À l’externe, parmi les facteurs issus du contexte international, Wiener souligne le rôle des puissances politiques, la complexité du problème auquel veut s’attaquer la norme, le caractère transfrontalier de la problématique, la quantité d’expériences nationales de la norme et la structure organisationnelle coordonnant l’application de la norme [@wiener_something_2000, 1355-1368]. D’un autre côté, Downs, Rocke et Barsoom, s’attardant sur le respect des traités, identifient la précision du texte, le contexte économique mondial, la présence ou l’absence de mécanismes de règlement des différends, la disponibilité ou non d’assistance technique et financière, les objectifs des traités et les efforts demandés qui y sont associés et les conséquences associées au non-respect du traité [@downs_is_1996, 380-386]. 
+À l’externe, parmi les facteurs issus du contexte international, Wiener souligne le rôle des puissances politiques, la complexité du problème auquel veut s’attaquer la norme, le caractère transfrontalier de la problématique, la quantité d’expériences nationales de la norme et la structure organisationnelle coordonnant l’application de la norme [@wiener_something_2000, 1355-1368]. D’un autre côté, Downs, Rocke et Barsoom, s’attardant sur le respect des traités, identifient la précision du texte, le contexte économique mondial, la présence ou l’absence de mécanismes de règlement des différends, la disponibilité ou non d’assistance technique et financière, les objectifs des traités et les efforts demandés qui y sont associés et les conséquences associées au non-respect du traité [@downs_is_1996, 380-386].
 
 Toujours à l’externe, concernant la norme en soit, Finnemore et Sikkink proposent hypothétiquement la légitimation internationale de la norme, sa prééminence sur la scène internationale, le contexte international ou l’époque, les relations de la nouvelle norme avec les normes existantes et les caractéristiques ou propriétés intrinsèques de la norme [@finnemore_international_1998, 906-909]. Ce dernier facteur est également considéré par Loges et Jakobi comme influent sur l’adhésion à une norme [@loges_not_2020, 1011]. Moore quand à elle insiste sur les éléments suivants, à la fois liés à la norme et à ses entrepreneurs normatifs : « the authority or perceived legitimacy of the actor promoting the norm; the degree to which the norm “ats” or resonates with the dominant norm-complex; the skill of norm articulation by the norm-entrepreneur; […]; and the norm’s at with key actors’ identities.» [@moore_negotiating_2012, 33].
 
@@ -92,40 +153,40 @@ Concernant les définitions nationales de la notion de déchets, celles-ci font 
 
 #### Tableau 1 : Explication du système de cotes pour les définitions nationales de déchets
 
-|Cotes| Critères pour l’assignation|
-|:----|:---------------------------|
-|-1| Aucune information n’a été transmis par l’État.|
-|0| L’État a déclaré ne pas avoir de définition de la notion de déchets.|
-|1| L’État a déclaré avoir une définition de la notion de déchets. La définition est formulée de telle sorte qu’elle reprend textuellement celle de la Convention ou est formulée autrement, mais ne présente que les trois éléments de celle de la Convention.|
-|2| L’État a déclaré avoir une définition de la notion de déchets. La définition est formulée de telle sorte qu’elle présente des ajouts conceptuels ou des exigences supplémentaires en comparaison avec celle de la Convention.|
+| Cotes | Critères pour l’assignation |
+|:---|:---|
+| -1 | Aucune information n’a été transmis par l’État. |
+| 0 | L’État a déclaré ne pas avoir de définition de la notion de déchets. |
+| 1 | L’État a déclaré avoir une définition de la notion de déchets. La définition est formulée de telle sorte qu’elle reprend textuellement celle de la Convention ou est formulée autrement, mais ne présente que les trois éléments de celle de la Convention. |
+| 2 | L’État a déclaré avoir une définition de la notion de déchets. La définition est formulée de telle sorte qu’elle présente des ajouts conceptuels ou des exigences supplémentaires en comparaison avec celle de la Convention. |
 
 Une fois cette première couche d’analyse des définitions nationales réalisée, les définitions dont le niveau de définition est supérieur à celui de la Convention sont reprises pour un codage supplémentaire à travers une typologisation des concepts ajoutés. Une analyse quantitative de la récurrence des concepts est finalement réalisée.
 
 #### Tableau 2 : Typologie pour les définitions classées comme supérieures à celles de la Convention
 
-|Catégories| Critères pour l’assignation|
-|:---------|:--------------------------|
-|Enjeux| La définition définit un déchet en fonction d’un autre enjeu.|
-|Environnement| La définition fait référence aux impacts environnementaux des déchets.|
-|Santé| La définition fait référence aux impacts sur la santé humaine des déchets.|
-|Intérêt public| La définition fait référence aux questions d’intérêt public justifiant la gestion des déchets.|
-|Sécurité| La définition fait référence au danger que représente les déchets.|
-|Technologie| La définition fait référence aux capacités technologiques nécessaires pour la gestion des déchets.|
-|Propriétés| La définition définit un déchet en fonction de ses propriétés.|
-|Valeur| La définition fait référence à une perte ou diminution de valeur.|
-|Utilité| La définition fait référence à une perte d’utilité.|
-|Stratégies| La définition définit un déchet en fonction des stratégies de traitement possibles.|
-|Réemploi| La définition fait référence au réemploi des déchets.|
-|Recyclage| La définition fait référence au recyclage des déchets.|
-|Valorisation| La définition fait référence à la valorisation des déchets.|
-|Activités| La définition définit un déchet en fonction des activités de production.|
-|Chaîne de valeur| La définition fait référence à l’ensemble de la chaîne de valeur.|
-|État| La définition définit un déchet en fonction de son état.|
-|Résidu| La définition distingue déchet et résidu.|
+| Catégories | Critères pour l’assignation |
+|:---|:---|
+| Enjeux | La définition définit un déchet en fonction d’un autre enjeu. |
+| Environnement | La définition fait référence aux impacts environnementaux des déchets. |
+| Santé | La définition fait référence aux impacts sur la santé humaine des déchets. |
+| Intérêt public | La définition fait référence aux questions d’intérêt public justifiant la gestion des déchets. |
+| Sécurité | La définition fait référence au danger que représente les déchets. |
+| Technologie | La définition fait référence aux capacités technologiques nécessaires pour la gestion des déchets. |
+| Propriétés | La définition définit un déchet en fonction de ses propriétés. |
+| Valeur | La définition fait référence à une perte ou diminution de valeur. |
+| Utilité | La définition fait référence à une perte d’utilité. |
+| Stratégies | La définition définit un déchet en fonction des stratégies de traitement possibles. |
+| Réemploi | La définition fait référence au réemploi des déchets. |
+| Recyclage | La définition fait référence au recyclage des déchets. |
+| Valorisation | La définition fait référence à la valorisation des déchets. |
+| Activités | La définition définit un déchet en fonction des activités de production. |
+| Chaîne de valeur | La définition fait référence à l’ensemble de la chaîne de valeur. |
+| État | La définition définit un déchet en fonction de son état. |
+| Résidu | La définition distingue déchet et résidu. |
 
 Finalement, toujours à partir des données du mécanisme de rapportage national, le nombre de mesures législatives ou dispositions légales adoptées pour assurer la conformité avec la Convention pour chaque État est comptabilisé. Le tout fait ensuite l’objet d’une analyse de la répartition géographique de l’intensité législative sur la question des déchets.
 
-## Résultats 
+## Résultats
 
 ### Niveaux des définitions nationales déclarées à la Convention
 
@@ -360,11 +421,11 @@ ggplot(data = pays_data_sf) +
 
 ```
 
-En observant la carte, on remarque rapidement que certains États se démarquent en étant largement au-dessus de la moyenne mondiale de production législative en lien avec la Convention de 3.875 dispositions. En effet, dépassant le cap du 10 dispositions légales, on retrouve, en ordre croissant, la Russie (10), la Roumanie (11), le Brésil (11), l’Azerbaïdjan (11), l’Autriche (11), la Dominique (12), le Biélorussie (12), le Japon (13), la Slovaquie (14), l’Arménie (15), la Serbie (16), l’Islande (16), l’Espagne (17), le Mexique (17), le Costa Rica (17), l’Inde (18), la Moldavie (19), le Portugal (26), la Colombie (29) et l’Albanie (36). De ces 20 États surperformants au comparatif en matière de production législative, on remarque que 40% d’entre-eux ont une définition plus ambitieuse que celle de la Convention en matière de déchets. 35% d’entre-eux ont une définition équivalente à celle de la Convention, 20% n’ont pas définition de la notion de déchets et 5% n’ont pas déclaré de définition. 
+En observant la carte, on remarque rapidement que certains États se démarquent en étant largement au-dessus de la moyenne mondiale de production législative en lien avec la Convention de 3.875 dispositions. En effet, dépassant le cap du 10 dispositions légales, on retrouve, en ordre croissant, la Russie (10), la Roumanie (11), le Brésil (11), l’Azerbaïdjan (11), l’Autriche (11), la Dominique (12), le Biélorussie (12), le Japon (13), la Slovaquie (14), l’Arménie (15), la Serbie (16), l’Islande (16), l’Espagne (17), le Mexique (17), le Costa Rica (17), l’Inde (18), la Moldavie (19), le Portugal (26), la Colombie (29) et l’Albanie (36). De ces 20 États surperformants au comparatif en matière de production législative, on remarque que 40% d’entre-eux ont une définition plus ambitieuse que celle de la Convention en matière de déchets. 35% d’entre-eux ont une définition équivalente à celle de la Convention, 20% n’ont pas définition de la notion de déchets et 5% n’ont pas déclaré de définition.
 
 ## Discussion
 
-Comme l’ont démontré les disparités en termes d’efforts normatifs et législatifs, il semblerait que la diffusion d’une norme sur la définition de la notion déchets ne soit pas stable à travers le monde [@busch_international_2005, 86]. La Figure 1 permet d’observer des tendances d’affinités régionales dans l’intensité des définitions adoptées et suggère que celles-ci se construiraient potentiellement sur le partage d’expériences communes dû à la proximité géographique (Amérique du Sud) ou à une situation économique similaire (corridor Inde-Chine), la participation à de mêmes familles légales ou culturelles (îlot germanique en Europe) ou  la proximité avec un lieu influent sur la question (bassin des Grands Lacs et proximité avec l’UNEP) [@berkowitz_transplant_2003, 166; @dobbin_global_2007, 449-461].
+Comme l’ont démontré les disparités en termes d’efforts normatifs et législatifs, il semblerait que la diffusion d’une norme sur la définition de la notion déchets ne soit pas stable à travers le monde [@busch_international_2005, 86]. La Figure 1 permet d’observer des tendances d’affinités régionales dans l’intensité des définitions adoptées et suggère que celles-ci se construiraient potentiellement sur le partage d’expériences communes dû à la proximité géographique (Amérique du Sud) ou à une situation économique similaire (corridor Inde-Chine), la participation à de mêmes familles légales ou culturelles (îlot germanique en Europe) ou la proximité avec un lieu influent sur la question (bassin des Grands Lacs et proximité avec l’UNEP) [@berkowitz_transplant_2003, 166; @dobbin_global_2007, 449-461].
 
 La pluralité (41.36%) des États ont adopté une définition équivalente à celle de la Convention, ce qui permettrait d’assumer l’institutionnalisation de norme, selon l’idée de point de bascule au 1/3 des États [@finnemore_international_1998, 901]. Cependant, il serait hâtif de considérer que la norme est internalisée, puisque, outre les États qui décident d’aller plus loin que la définition de la Convention, il reste que 36.65% des États décident de ne pas participer au mécanisme déclaratoire concernant la définition de la notion de déchets ou déclarent ne pas définir cette notion nationalement.
 
@@ -376,13 +437,68 @@ L’enjeu vient plutôt du constat qu’il semblerait y avoir une relation inver
 
 ## Conclusions et limites
 
-En réponse à l’hypothèse posée plus haut et en vue des résultats discutés, la norme reliée à la définition de la notion de déchets ne serait pas internalisée, sans toutefois être contestée, mais fait plutôt l’objet de résistance en lien avec sa redéfinition. Ces résultats remettent ainsi en question la possibilité de véritablement distinguer les phases du cycle de vie d’une norme. Le cas présent démontre qu’une norme peut être institutionnalisée et faire l’objet d’efforts de diffusion et d’internalisation, tout en voyant de nouvelles formes d’elle-même émerger et tenter d’être diffusées. 
+En réponse à l’hypothèse posée plus haut et en vue des résultats discutés, la norme reliée à la définition de la notion de déchets ne serait pas internalisée, sans toutefois être contestée, mais fait plutôt l’objet de résistance en lien avec sa redéfinition. Ces résultats remettent ainsi en question la possibilité de véritablement distinguer les phases du cycle de vie d’une norme. Le cas présent démontre qu’une norme peut être institutionnalisée et faire l’objet d’efforts de diffusion et d’internalisation, tout en voyant de nouvelles formes d’elle-même émerger et tenter d’être diffusées.
 
 Face à la complexité de l’évolution de la norme relative à la définition des déchets, il semble approprié de faire suite aux conclusions de Bloomfield [@bloomfield_norm_2016] et de chercher à voir si plusieurs cycles peuvent co-exister sur des normes et si d’autres types de cycles que le cycle de vie existent, à l’instar du cycle de contestation qu’il propose. Face aux présentes observations, des recherches supplémentaires seraient nécessaires pour savoir si les tendances relevées sont propres à la Convention, au régime des déchets ou sont plutôt généralement associées aux questions environnementales. De plus, face à la plausible contradiction entre le travail législatif et le travail normatif effectués, il est nécessaire pour approfondir cette hypothèse de se pencher plus en profondeur sur le contenu des normes, politiques et réglementations développées par les États pour comprendre les objectifs et intérêts qui dirigent leurs prises de positions dans le cadre du régime international des déchets. Pour s’assurer d’avoir une compréhension globale du régime des déchets et des évolutions normatives en son sein sur la notion des déchets, l’exercice effectué ici devrait être répété pour les autres traités internationaux sur la question, mais également sur les accords régionaux pour approfondir la compréhension des dynamiques d’apprentissage dans la diffusion d’une norme. Finalement, malgré pour assurer une fiabilité, une réplicabilité et meilleure validité des résultats, une analyse comme celle réalisée plus haut nécessiterait un codage à plusieurs codeurs et une vérification subséquente des taux de fiabilité intercodeurs. L’essai ici se veut donc exploratoire, dans le but d’ouvrir la voie à des analyses plus poussées et rigoureuses de question de la définition des déchets.
 
 Pour conclure, face à une visible multiplicité des compréhensions sur ce qui constitue un déchet à l’échelle internationale, il est possible de remettre en question l’efficacité de la définition de la Convention de Bâle à cadrer ce qui constitue ou non un déchet pour les États et ainsi à promouvoir une gestion des déchets raisonnée, mais surtout une réduction des déchets comme elle le souligne dans la Déclaration de Carthagène [@secretariat_of_the_basel_convention_cartagena_2011]. Ces questionnements sont notamment soutenus par l’avènement de nouvelles conventions régionales, comme la Convention de Bamako pour les États africains et la Convention de Waigani pour les États du Forum des îles pacifiques, qui soulèvent possiblement la question à savoir quelle est la meilleure échelle pour gérer une telle question environnementale [@bernard_etat_2014, 18; @donald_bamako_1992; @habermas_integration_1998]. Pour répondre aux impératifs de réduction des déchets et d’optimisation de l’utilisation des ressources pour lesquels plaident les Nations Unies, un resserrement de la norme sur la définition des déchets est nécessaire. Sans une évacuation de sa composante subjective, la définition ne peut être efficace pour endiguer l’enjeu de surproduction de déchets actuel et entamer une véritable transition vers une économie circulaire [@wiprachtiger_waste_2021, 1-2]. Une réflexion normative est ainsi nécessaire afin de repenser la notion de déchets, actuellement ancrée dans un modèle économique linéaire, pour atteindre les objectifs en matière de respect des limites planétaires [@sauve_environmental_2016, p. 53].
 
-
 ## References
 
 ## Appendix
+
+<!--chapter:end:01-article1.Rmd-->
+
+```{=html}
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+```
+
+\backmatter
+
+```{=html}
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+```
+
+# Bibliographie {.unnumbered}
+
+```{=html}
+<!--
+This manually sets the header for this unnumbered chapter.
+-->
+```
+
+\markboth{References}{References}
+
+```{=html}
+<!--
+To remove the indentation of the first entry.
+-->
+```
+
+\noindent
+
+```{=html}
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+```
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+```{=html}
+<!--
+This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+-->
+```
+
+---
+nocite: | 
+---
+
+<!--chapter:end:99-references.Rmd-->
