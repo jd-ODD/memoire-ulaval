@@ -135,7 +135,7 @@ Globalement, 63.65% des États signataires de la Convention de Bâle ont une dé
 
 #IMPORTATION DU FICHIER EXCEL
 #Installation des packages
-install.packages("openxlsx")
+#install.packages("openxlsx")
 library(openxlsx)
 
 #Importer le fichier Excel
@@ -156,11 +156,11 @@ str(donnees)
 
 #VISUALISATION DE LA RÉPARTITION DES NATIONAL DEFINITIONS OF WASTE
 #Installer les packages nécessaires
-install.packages("sf")
-install.packages("ggplot2")
-install.packages("rnaturalearth")
-install.packages("dplyr")
-install.packages("rnaturalearthdata")
+#install.packages("sf")
+#install.packages("ggplot2")
+#install.packages("rnaturalearth")
+#install.packages("dplyr")
+#install.packages("rnaturalearthdata")
 #Charger les packages nécessaires
 library(sf)
 library(ggplot2)
@@ -274,8 +274,8 @@ print(df_concepts)
 
 #Création du circular barplot.
 # Installer et charger les packages nécessaires
-install.packages("ggplot2", "dplyr")
-install.packages("ggrepel")
+#install.packages("ggplot2", "dplyr")
+#install.packages("ggrepel")
 library(ggrepel)
 library(ggplot2)
 library(dplyr)
@@ -326,6 +326,70 @@ Ce travail de redéfinition normative se fait principalement par la fusion et le
 La production législative en matière de gestion des déchets liée à la Convention serait principalement concentrée en Europe (44.62%), le reste étant distribué de manière variable dans le reste du monde (55.38%). Cette intensité du travail législatif européen se traduit également dans la moyenne continentale de mesures par État, avec une moyenne dépassant de 94.72% la moyenne mondiale fixée à 3.875 dispositions légales par État. Cette intensité de la production légale semble inverse à la production normative, où la moyenne européenne serait sous la moyenne mondiale de 48.32%. Pour que ce qui est de l’Océanie, l’Amérique du Sud et l’Amérique du Nord, le tout semble constant avec les autres tendances observées plus haut. Cependant, pour l’Afrique et l’Asie, alors que les États de ces régions sont ceux qui ont réalisé la majorité du travail normatif sur la notion de déchets, l’Asie étant même à 32.64% au-dessus de la moyenne mondiale de production normative, les deux régions continentales se trouvent au-dessous de la moyenne pour leur production législative, l’Asie à 13.98% et l’Afrique à -55.69%, les deux représentant au total 33.74% des dispositions légales mises en place à l’échelle mondiale.
 
 ```{r pressure, echo=FALSE, message=FALSE}
+
+#IMPORTATION DU FICHIER EXCEL
+#Installation des packages
+#install.packages("openxlsx")
+library(openxlsx)
+
+#Importer le fichier Excel
+
+# Remplacez le chemin du fichier par le vôtre
+chemin_fichier <- "/Users/jeannedesrosiers/Desktop/Essai/Basel convention/Basel_waste_def_database.xlsx"
+
+# Lire le fichier Excel
+donnees <- read.xlsx(chemin_fichier, sheet = 1, startRow = 2)
+
+#Vérification des données
+
+# Voir les premières lignes des données
+head(donnees)
+
+# Vérifier la structure des données
+str(donnees)
+
+#VISUALISATION DE LA RÉPARTITION DES NATIONAL DEFINITIONS OF WASTE
+#Installer les packages nécessaires
+#install.packages("sf")
+#install.packages("ggplot2")
+#install.packages("rnaturalearth")
+#install.packages("dplyr")
+#install.packages("rnaturalearthdata")
+#Charger les packages nécessaires
+library(sf)
+library(ggplot2)
+library(rnaturalearth)
+library(dplyr)
+library(rnaturalearthdata)
+
+#Obtenir les données géographiques des pays du monde
+# Charger la carte des pays du monde
+pays_sf <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Afficher un aperçu des données géographiques
+head(pays_sf)
+
+# Supposons que vos données sont stockées dans 'data' et que les pays sont dans 'pays_sf'
+
+# Transformer 'data' en tibble pour une meilleure gestion avec dplyr
+data <- as_tibble(donnees)
+
+# Réordonner 'pays_sf' en fonction de 'data'
+pays_sf$name <- factor(pays_sf$name, levels = data$Country)
+pays_sf <- pays_sf[order(pays_sf$name), ]
+
+# Joindre après avoir réordonné
+pays_data_sf <- left_join(pays_sf, data, by = c("admin" = "Country"))
+
+# Vérifier les premiers pays dans les données géographiques
+head(pays_sf$name)
+
+# Vérifier les premiers pays dans vos données
+head(data$Country)
+
+# Vérifier les données jointes
+head(pays_data_sf)
+
 
 #CRÉATION DE LA CARTE CHOROPLÈTHE
 # Créer la carte choroplèthe

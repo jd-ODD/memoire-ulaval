@@ -335,7 +335,7 @@
     \vfil
     Québec, Canada \\
     \vfil
-    \copyright \thinspace \@auteur, 2024 \\
+    \copyright \thinspace \@auteur, 2020 \\
   \end{center}\par
   \end{titlepage}
 
