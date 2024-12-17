@@ -1,3 +1,64 @@
+---
+auteur: 'Jeanne Desrosiers' # Entrer le nom de l'auteur entre ' '
+date: 'Décembre 2024 ' # Entrer la date du dépôt entre ' '
+directeur: 'Jean-Frédéric Morin' # Entrer le nom du directeur/directrice de recherche entre ' '
+direction: 'directeur' # Entrer 'directeur' ou 'directrice', en fonction du sexe du directeur/directrice de recherche, sans majuscule
+#codirecteur: 'Un Tel' # Entrer le nom du codirecteur/codirectrice de recherche entre ' '
+#codirection: 'codirecteur-ice' # Entrer 'codirecteur' ou 'codirectrice', en fonction du genre du codirecteur/codirectrice de recherche
+departement: 'science politique' # Entrer le nom du département délivrant le diplôme entre ' ', sans majuscule
+grade: 'M.A.' # Entrer le type de grade entre ' ' (M.A., M.Sc., PhD, etc.)
+diplome: 'Maîtrise professionnelle en science politique' # Entrer le nom du diplôme entre ' ' (Maîtrise, Doctorat, etc.)
+type: 'Essai' # Entrer le type de projet entre ' ' (Essai, mémoire, thèse, etc.)
+# Entrer le titre entre sur la première ligne, et le sous-titre sur la 2e
+titre: | 
+          | Titre
+          |  Sous-titre
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: 
+  thesisdown::thesis_pdf: 
+      latex_engine: xelatex
+bibliography: bib/bibfile.bib
+csl: csl/apa.csl
+lof: true
+lot: true 
+header-includes:
+- \usepackage{setspace}
+- \usepackage[labelfont=bf,textfont=md]{caption}
+- \usepackage{float}
+- \usepackage[nottoc]{tocbibind} # pour ajouter les lof et lot dans la toc
+- \AtBeginDocument{\renewcommand{\contentsname}{Table des matières}}
+- \AtBeginDocument{\renewcommand{\listfigurename}{Liste des figures}}
+- \AtBeginDocument{\renewcommand{\listtablename}{Liste des tableaux}}
+- \AtBeginDocument{\renewcommand{\chaptername}{Article}}
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+resume: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-resume.Rmd"), collapse = '\n  ')`
+abstract: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
+remerciements: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00--remerciements.Rmd"), collapse = '\n  ')`
+---
+
+```{r include_packages, include = FALSE}
+# Cette partie du code s'assure que les le thesisdown package est installé et chargé.
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(thesisdown))
+  devtools::install_github("ismayc/thesisdown")
+library(thesisdown)
+```
+
+\doublespace
+
+# Introduction {-}
+
+Rédiger ici l'introduction de votre mémoire.
+
+<!--chapter:end:index.Rmd-->
+
 # Votre titre
 
 ## Introduction
@@ -415,4 +476,48 @@ Pour conclure, face à une visible multiplicité des compréhensions sur ce qui 
 
 ## Bibliographie
 
+
+
+<!--chapter:end:01-article1.Rmd-->
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+
+\backmatter
+
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+
+# Bibliographie {-}
+<!--
+This manually sets the header for this unnumbered chapter.
+-->
+\markboth{References}{References}
+<!--
+To remove the indentation of the first entry.
+-->
+\noindent
+
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+
+
+<!--
+This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+-->
+
+---
+nocite: | 
+
+...
+
+<!--chapter:end:99-references.Rmd-->
 
