@@ -27,19 +27,10 @@ header-includes:
 - \usepackage[labelfont=bf,textfont=md]{caption}
 - \usepackage{float}
 - \usepackage[nottoc]{tocbibind} # pour ajouter les lof et lot dans la toc
-- \AtBeginDocument{\renewcommand{\contentsname}{Table des matières}}
-- \AtBeginDocument{\renewcommand{\listfigurename}{Liste des figures}}
-- \AtBeginDocument{\renewcommand{\listtablename}{Liste des tableaux}}
 - \AtBeginDocument{\renewcommand{\chaptername}{Article}}
 - \usepackage{pdflscape}
 - \newcommand{\blandscape}{\begin{landscape}}
 - \newcommand{\elandscape}{\end{landscape}}
-resume: |
-  `r if(knitr:::is_latex_output()) paste(readLines("00-resume.Rmd"), collapse = '\n  ')`
-abstract: |
-  `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
-remerciements: |
-  `r if(knitr:::is_latex_output()) paste(readLines("00--remerciements.Rmd"), collapse = '\n  ')`
 ---
 
 ```{r include_packages, include = FALSE}
@@ -53,6 +44,3 @@ library(thesisdown)
 
 \doublespace
 
-# Introduction {-}
-
-Rédiger ici l'introduction de votre mémoire.
