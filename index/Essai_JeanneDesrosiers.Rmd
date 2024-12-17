@@ -132,6 +132,12 @@ Concernant les définitions nationales de la notion de déchets, celles-ci font 
 
 #### Tableau 1 : Explication du système de cotes pour les définitions nationales de déchets
 
+|Cotes | Critères d'assignation|
+|:-----|:----------------------|
+|-1| Aucune information transmise|
+|0| Déclaration de non définition|
+|1| Déclaration d'une définition équivalente à celle de la Convention|
+|2| Déclaration d'une définition supérieure à celle de la Convention|
 
 Une fois cette première couche d’analyse des définitions nationales réalisée, les définitions dont le niveau de définition est supérieur à celui de la Convention sont reprises pour un codage supplémentaire à travers une typologisation des concepts ajoutés. Une analyse quantitative de la récurrence des concepts est finalement réalisée.
 

@@ -1,4 +1,4 @@
-# État de la norme sur la définition de déchets à l'échelle internationale
+# État de la situation de la norme sur la définition de déchets à l'échelle internationale
 
 ## Introduction
 
@@ -82,7 +82,6 @@ L’ensemble des données collectées provient des informations soumises par les
 Concernant les définitions nationales de la notion de déchets, celles-ci font l’objet d’une analyse mixte en deux temps. Un premier codage sur les définitions est réalisé à partir de la correspondance des données avec la définition de la notion de déchets de la Convention de Bâle, qui va comme suit : «Article 2.1. “Wastes” are substances or objects which are disposed of or are intended to be disposed of or are required to be disposed of by the provisions of national law;» [@secretariat_of_the_basel_convention_basel_2023, 7]. Chacune des définitions soumises par les États est codée en fonction de sa correspondance avec la définition de la convention qui comprend trois éléments : le fait de s’en être départi, l’intention de s’en départir et l’obligation de s’en départir. Une absence de déclaration d’une définition serait codée -1, tandis qu’une déclaration d’absence de définition serait codée 0. Si la définition déclarée est équivalente, celle-ci est codée 1. Si la définition déclarée va au-delà de ce qui est spécifié au sein de la définition de la Convention, celle-ci est codée 2. Une fois ce codage réalisé, la distribution géographique des niveaux de définitions est observée pour déterminer l’origine des changements et de la stabilité de la définition de la notion de déchets.
 
 #### Tableau 1 : Explication du système de cotes pour les définitions nationales de déchets
-
 
 Une fois cette première couche d’analyse des définitions nationales réalisée, les définitions dont le niveau de définition est supérieur à celui de la Convention sont reprises pour un codage supplémentaire à travers une typologisation des concepts ajoutés. Une analyse quantitative de la récurrence des concepts est finalement réalisée.
 
