@@ -1,4 +1,4 @@
-# Votre titre
+# État de la norme sur la définition de déchets à l'échelle internationale
 
 ## Introduction
 
@@ -96,6 +96,7 @@ Finalement, toujours à partir des données du mécanisme de rapportage national
 ### Niveaux des définitions nationales déclarées à la Convention
 
 Globalement, 63.65% des États signataires de la Convention de Bâle ont une définition nationale de la notion de déchets. Moins d’un tiers des États signataires (21.99%) présentent une définition qui dépasse ce qui est proposé par la Convention. De manière continentale, l’Asie et l’Afrique présentent des distributions normales, respectivement 60.42% et 50.95% des États possédant une définition. L’Europe et l’Amérique du Sud se distinguent quant à elles avec des taux au-dessus du taux mondial. Pour l’Europe (88.63%), la définition de la Convention de Bâle semble fortement institutionnalisée avec 77.27% des États ayant une définition équivalente à celle-ci, si ce n’est pas textuellement la même. Les pays européens présentent cependant le plus bas taux d’ambition en termes de définition normative de la notion de déchets, avec seulement 11.36% d’entre eux ayant une définition dépassant celle de la Convention. Au contraire, l’Amérique du Sud (78.57%) présente le plus bas taux pour les définitions équivalentes à celles de la Convention (21.43%), mais présente aussi le plus haut taux de définitions supérieures à la Convention (57.14%). Les États sud-américains présentent également un taux de participation élevé au mécanisme de rapportage national, étant la seule région n’ayant aucune déclaration non soumise sur la question de définition de déchets. L’Amérique du Nord, quant à elle, présente une distribution relativement normale également, mais celle-ci est principalement dû à la région de l’Amérique centrale, où se situe la majorité des définitions équivalente ou supérieures à la Convention pour l’ensemble continental. Finalement, l’Océanie reste plus difficile à lire vu le haut taux de définitions non soumises au Secrétariat de la Convention. Cette situation pourrait être dû au ratio important de petits États dans cet ensemble continental; le mécanisme de rapportage national serait réputé être relativement lourd pour les administrations publiques de plus petites tailles.
+
 
 ```{r pressure1, echo=FALSE, message=FALSE, warning=FALSE, results="hide"}
 
@@ -216,11 +217,13 @@ ggplot(data = pays_data_sf) +
 
 ```
 
+
 Outre les tendances continentales, face à la carte choroplèthe, il apparaît aisé d’observer des tendances régionales concernant l’émergence de définitions de la notion des déchets plus développées. En effet, le Nord de l’Amérique du Sud semble mener un effet d’entraînement sur le reste du continent. Malgré un certain conservatisme européen sur la définition, on observe un îlot en Europe centrale, possiblement une influence germanique pour des définitions plus ambitieuses. La péninsule arabique est principalement au vert. La région des Grands Lacs en Afrique semble être le principal centre de développement de la définition sur le continent. Finalement, un corridor Inde-Chine semble se dessiner, joignant l’Asie méridionale et l’Asie d’Extrême-Orient dans une opération de développement normatif.
 
 ### Référence à des concepts additionnels au sein du texte des définitions de niveau supérieur
 
 La majorité du travail de redéfinition normative de la notion de déchets (57.14%) est réalisé par des États d’Asie (33.33%) ou d’Afrique (23.81%). Si on ajoute les pays d’Amérique du Sud, qui arrive en troisième (19.05%), on constate 76.19% du travail normatif provient de ces trois régions du monde.
+
 
 ```{r pressure2, echo=FALSE, message=FALSE, warning=FALSE, results="hide"}
 
@@ -287,9 +290,11 @@ ggplot(df_concepts, aes(x = reorder(Concept, Valeurs), y = Valeurs, fill = Group
 
 Ce travail de redéfinition normative se fait principalement par la fusion et le greffage normatifs et on remarque un arrimage sans pareil de la notion de déchet avec l’enjeu de l’environnement. En effet, 45.24% des définitions dont le texte est plus demandant que celui de la Convention relient déchets et environnement, que ce soit par la mention de la pollution, des impacts environnementaux, des dangers pour les écosystèmes, etc. Ces conséquences environnementales relatives aux déchets se révèleraient ainsi être des préoccupations prioritaires chez ces États.
 
+
 ### Législations nationales mises en place pour assurer la conformité de la Convention
 
 La production législative en matière de gestion des déchets liée à la Convention serait principalement concentrée en Europe (44.62%), le reste étant distribué de manière variable dans le reste du monde (55.38%). Cette intensité du travail législatif européen se traduit également dans la moyenne continentale de mesures par État, avec une moyenne dépassant de 94.72% la moyenne mondiale fixée à 3.875 dispositions légales par État. Cette intensité de la production légale semble inverse à la production normative, où la moyenne européenne serait sous la moyenne mondiale de 48.32%. Pour que ce qui est de l’Océanie, l’Amérique du Sud et l’Amérique du Nord, le tout semble constant avec les autres tendances observées plus haut. Cependant, pour l’Afrique et l’Asie, alors que les États de ces régions sont ceux qui ont réalisé la majorité du travail normatif sur la notion de déchets, l’Asie étant même à 32.64% au-dessus de la moyenne mondiale de production normative, les deux régions continentales se trouvent au-dessous de la moyenne pour leur production législative, l’Asie à 13.98% et l’Afrique à -55.69%, les deux représentant au total 33.74% des dispositions légales mises en place à l’échelle mondiale.
+
 
 ```{r pressure3, echo=FALSE, message=FALSE, warning=FALSE, results="hide"}
 
@@ -389,6 +394,7 @@ ggplot(data = pays_data_sf) +
   )
 
 ```
+
 
 En observant la carte, on remarque rapidement que certains États se démarquent en étant largement au-dessus de la moyenne mondiale de production législative en lien avec la Convention de 3.875 dispositions. En effet, dépassant le cap du 10 dispositions légales, on retrouve, en ordre croissant, la Russie (10), la Roumanie (11), le Brésil (11), l’Azerbaïdjan (11), l’Autriche (11), la Dominique (12), le Biélorussie (12), le Japon (13), la Slovaquie (14), l’Arménie (15), la Serbie (16), l’Islande (16), l’Espagne (17), le Mexique (17), le Costa Rica (17), l’Inde (18), la Moldavie (19), le Portugal (26), la Colombie (29) et l’Albanie (36). De ces 20 États surperformants au comparatif en matière de production législative, on remarque que 40% d’entre-eux ont une définition plus ambitieuse que celle de la Convention en matière de déchets. 35% d’entre-eux ont une définition équivalente à celle de la Convention, 20% n’ont pas définition de la notion de déchets et 5% n’ont pas déclaré de définition. 
 
